@@ -46,8 +46,7 @@ public class Q002 {
             "2,井上",
             "4,木村",
             "14,林",
-            "9,清水",
-            "31,xxx,aaa"
+            "9,清水"
     };
 
     public static void main(String[] args) {
