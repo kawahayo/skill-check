@@ -1,4 +1,7 @@
 package q002;
+import java.util.ArrayList;
+import java.util.Comparator;
+
 
 /**
  * Q002 並べ替える
@@ -45,5 +48,22 @@ public class Q002 {
             "14,林",
             "9,清水"
     };
+
+    public static void main(String[] args) {
+        ArrayList<Member> memberList = new ArrayList<>();
+
+        // dataListからidとnameを抜き出してMemberに格納
+        for(String data : dataList){
+            String[] mdata = data.split(",",0);
+            memberList.add(new Member(Integer.parseInt(mdata[0]), mdata[1]));
+        };
+
+        // Member一覧をid順にソートする
+        memberList.sort(Comparator.comparing(Member::getId));
+
+        // ソートした結果を表示
+        memberList.forEach(m -> System.out.println(m.getId() + "," +m.getName()));
+    }
 }
-// 完成までの時間: xx時間 xx分
+
+// 完成までの時間: 1時間 20分
