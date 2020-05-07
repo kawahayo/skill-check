@@ -46,7 +46,8 @@ public class Q002 {
             "2,井上",
             "4,木村",
             "14,林",
-            "9,清水"
+            "9,清水",
+            "31,xxx,aaa"
     };
 
     public static void main(String[] args) {
@@ -55,7 +56,22 @@ public class Q002 {
         // dataListからidとnameを抜き出してMemberに格納
         for(String data : dataList){
             String[] mdata = data.split(",",0);
-            memberList.add(new Member(Integer.parseInt(mdata[0]), mdata[1]));
+
+            // dataがID,名前の形式ではなく過不足がある場合はエラー終了
+            if(mdata.length != 2){
+                System.out.println("ID,名前の形式になっていません:" + data);
+                System.exit(1);
+            }
+
+            // idが数字以外の場合はエラー終了
+            int id;
+            try {
+                id = Integer.parseInt(mdata[0]);
+                memberList.add(new Member(id, mdata[1]));
+            } catch (NumberFormatException nfex) {
+                System.out.println("IDが数字形式になっていません:" + data);
+                System.exit(1);
+            }
         };
 
         // Member一覧をid順にソートする
@@ -66,4 +82,4 @@ public class Q002 {
     }
 }
 
-// 完成までの時間: 1時間 20分
+// 完成までの時間: 2時間 20分
