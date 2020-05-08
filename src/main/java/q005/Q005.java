@@ -146,7 +146,7 @@ public class Q005 {
      * @param minutes
      * @return ret
      */
-    public static String getStringTime(int minutes) {
+    private static String getStringTime(int minutes) {
         int hour = Math.abs(minutes / 60);
         int min = Math.abs(minutes % 60);
         String ret = hour + "時間" + min + "分";
